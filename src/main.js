@@ -2,7 +2,7 @@ const url = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 const result = document.getElementById('result');
 const sound = document.getElementById('sound');
 const btn = document.getElementById('search-btn');
-btn.addEventListener('click' , () => {
+btn.addEventListener('click', () => {
   const inpWord = document.getElementById('inp-word').value;
   fetch(`${url} ${inpWord}`)
     .then((response) => response.json())
@@ -22,14 +22,14 @@ btn.addEventListener('click' , () => {
         ${data[0].meanings[0].definitions[0].definition}
       </p>
       <p class="word-example">
-        ${data[0].meanings[0].definitions[0].example || ""}
+        ${data[0].meanings[0].definitions[0].example || ''}
       </p>`;
-      sound.setAttribute("src", `https:${data[0].phonetics[0].audio}`);
+      sound.setAttribute('src', `https:${data[0].phonetics[0].audio}`);
     })
     .catch(() => {
-      result.innerHTML = `<h3 class="error">Couldn't Find The Word</h3>`;
+      result.innerHTML = '<h3 class="error">Couldn\'t Find The Word</h3>';
     });
 });
-function playSound () {
+function playSound() {
   sound.play();
 }
