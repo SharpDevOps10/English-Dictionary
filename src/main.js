@@ -30,3 +30,6 @@ btn.addEventListener('click' , () => {
       result.innerHTML = `<h3 class="error">Couldn't Find The Word</h3>`;
     });
 });
+function playSound () {
+  sound.play();
+}
